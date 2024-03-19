@@ -1,0 +1,52 @@
+<div class="section">
+  <div class="bookpage-container" style="margin-top:9vw;">
+    <div  class="columns is-centered">
+      <div class="column is-one-third" id="bookpage-text">
+          <div class="box">
+          <h2  class="title is-size-4" id="book-handlebar-title">{{title}}</h2>
+          <p class=" is-size-5" id="book-handlebar-author">Book written by {{author}}</p>
+          <p class=" is-size-5" id="book-handlebar-description">My thoughts: {{description}}</p>
+          <button id="update-button" style="margin-top: 10px;" class="button is-light">Edit review</button>
+          </p>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div id="edit-form"  class="tile is-parent is-justify-content-center">
+  <div id="book-handlebar-tile" style="display:none" class="tile is-4 is-child box has-text-centered">
+  <form style="display: none;" class="form new-book-form">
+    <div class="field">
+      <label for="book-title" class="label">Book Title</label>
+        <div class="control">
+          <input value="{{title}}" class="input" type="text" placeholder="book read" id="book-title" name="book-title">
+        </div>
+    </div>
+    <div class="field">
+      <label for="book-author" class="label">Author</label>
+        <div class="control">
+          <input value="{{author}}" class="input" type="text" placeholder="written by" id="book-author" name="book-author">
+        </div>
+    </div>
+      <div class="field">
+        <label for="book-description" class="label">Write your thoughts!</label>
+          <div class="control">
+            <textarea value="{{description}}" class="textarea" id="book-description" name="book-description" placeholder="write all your favorite moments, characters and thoughts on the ending!! :books: :nerd_face:">{{description}}</textarea>
+          </div>
+      </div>
+        <div class="field is-grouped">
+          <div class="control">
+            <button type="submit" class="button is-light">Submit</button>
+          </div>
+          <div class="control">
+            <button class="button is-light">Cancel</button>
+          </div>
+        </div>
+
+      <input type="hidden" value="{{id}}" name="book_id">
+    </form>
+    </div>
+</div>
+  <script src="/js/review.js"></script>

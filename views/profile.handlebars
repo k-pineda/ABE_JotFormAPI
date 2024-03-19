@@ -1,0 +1,107 @@
+<div class="row">
+  <div class="col-auto has-text-centered">
+    <h2 class="is-size-3 has-text-weight-bold mb-4">Welcome, {{name}}!</h2>
+  </div>
+</div>
+<div class="columns is-multiline">
+  <div class="column is-6">
+      <div class="box p-6 m-3 has-text-centered">
+        <h4 class="has-text-weight-bold	is-underlined p-2 mb-3">Add a New Book</h4>
+      <form class="form new-book-form">
+      <div class="field">
+        <label for="book-title" class="label">Book Title</label>
+        <div class="control">
+          <input class="input" type="text" placeholder="book read" id="book-title" name="book-title">
+        </div>
+      </div>
+      <div class="field">
+        <label for="book-author" class="label">Author</label>
+        <div class="control">
+          <input class="input" type="text" placeholder="written by"  id="book-author" name="book-author">
+        </div>
+      </div>
+      <!--Future Development on the app-->
+      {{!-- <div class="field">
+        <label for="book-rating" class="label">My Rating</label>
+        <div  id="book-rating" name="book-rating" class="rating">
+          <input type="radio" id="star5" name="rating" value="5">
+          <label for="star5"></label>
+          <input type="radio" id="star4" name="rating" value="4">
+          <label for="star4"></label>
+          <input type="radio" id="star3" name="rating" value="3">
+          <label for="star3"></label>
+          <input type="radio" id="star2" name="rating" value="2">
+          <label for="star2"></label>
+          <input type="radio" id="star1" name="rating" value="1">
+          <label for="star1"></label>
+        </div>
+      </div> --}}
+      <div class="field">
+        <label for="book-description" class="label">Write your thoughts!</label>
+        <div class="control">
+          <textarea class="textarea" id="book-description" name="book-description" placeholder="write all your favorite moments, characters and thoughts on the ending!!"></textarea>
+        </div>
+      </div>
+      <!--Future Development on the app-->
+      {{!-- <div class="field">
+        <label for="book-genre" class="label">Genre</label>
+        <div class="control">
+          <div id="book-genre" name="book-genre" class="select">
+            <select>
+              <option></option>
+              <option>Biography</option>
+              <option>Fantasy</option>
+              <option>History</option>
+              <option>Literary Fiction</option>
+              <option>Mystery</option>
+              <option>Romance</option>
+              <option>Science Fiction</option>
+              <option>Self-Help</option>
+              <option>Thriller</option>
+              <option>Young-Adult Fiction</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+      </div> --}}
+      {{!-- <div class="field">
+        <label for="book-ending" class="label">Did you like the ending?</label>
+        <div id="book-ending" name="book-ending" class="control">
+          <label class="radio">
+            <input type="radio" name="question">
+            Yes
+          </label>
+          <label class="radio">
+            <input type="radio" name="question">
+            No
+          </label>
+        </div>
+      </div> --}}
+      <div class="field is-grouped is-justify-content-center">
+        <div class="control">
+          <button type="submit" class="button is-light">Submit</button>
+        </div>
+      </div>
+      </div>
+      </form>
+    </div>
+  {{#if books.length}}
+<div class="column is-6">
+  <div class="box p-6 m-3 book-list">
+    <h3 class="has-text-weight-bold	is-underlined ">Current books:</h3>
+    {{#each books as |book|}}
+    <div class="row mb-2">
+      <div class="col-md-8">
+        <h4 class="is-size-6 has-text-weight-bold m-4"><a href="/book/{{book.id}}">{{book.title}}</a></h4>
+      </div>
+      <div class="col-md-4">
+        <button class="button is-light" data-id="{{book.id}}">Delete</button>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
+  </div>  
+</div>
+
+<script src="./js/profile.js"></script>

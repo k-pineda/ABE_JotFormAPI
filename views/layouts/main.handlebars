@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BookMark</title>
+  <!--Link to Bulma CSS Framework-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <!--Google Font API-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=BioRhyme:wght@300&display=swap" rel="stylesheet">
+  <!--PNG Icon for Tab-->
+  <link rel="icon" type="image/png" href="/images/logo_transparent.png">
+  <!--Link to CSS Stylesheet-->
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- jQuery Library -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+  <div class="wrapper">
+  <!--Header Container-->
+  <header>
+    <!--Navbar Section-->
+    <nav class="navbar p-3" role="navigation" aria-label="main navigation" style="background-color: #A4907C;">
+      <div class="navbar-brand">
+         <a class="navbar-item hover has-text-weight-bold is-size-5"  width="112" height="28" href="/">BookMark</a>
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div class="navbar-menu navbar-end">
+        <div class="navbar-item has-text-weight-bold is-size-5" width="112" height="28">
+          <!--Render conditional statements-->
+          {{#if logged_in}}
+          <a class="navbar-item hover" href="/profile">Profile</a>
+          <a class="navbar-item hover" id="logout">Logout</a>
+          {{else}}
+          <a class="navbar-item hover" href="/login">Login</a>
+          <a class="navbar-item hover" href="/signup">Sign Up</a>
+          {{/if}}
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!--Main Container-->
+  <main class="container container-fluid mt-5">
+    <!-- Render the sub layout -->
+    {{{ body }}}
+  </main>
+  </div>
+
+  <!--Footer Container-->
+  <footer class="column is-narrow footer-shadow it-has-text-centered is-flex-align-items-flex-end mt-auto"
+    style="background-color: #A4907C;">
+    <div class="content has-text-centered">
+      <p>
+        &copy; 2023 BookMark by <a href="https://github.com/k-pineda" target="_blank" class="hover">Karen</a>,<a
+          href="https://github.com/JuanSanchez39" target="_blank" class="hover"> Juan</a>,<a
+          href="https://github.com/HyonNeo" target="_blank" class="hover"> Facundo</a>, and<a
+          href="https://github.com/Jalzu1007/" target="_blank" class="hover"> Jose</a>. The source code is<a
+          href="https://opensource.org/license/mit/" target="_blank" class="hover"> licensed by MIT</a>.
+      </p>
+    </div>
+  </footer>
+
+  <!-- jQuery script for Bulma navbar functionality -->
+  <script>
+    $(document).ready(function () {
+      // Check for click events on the navbar burger icon
+      $(".navbar-burger").click(function () {
+        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+        $(".navbar-burger").toggleClass("is-active");
+        $(".navbar-menu").toggleClass("is-active");
+      });
+    });
+  </script>
+
+  <!-- Render script for logged in users only -->
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
+</body>
+
+</html>

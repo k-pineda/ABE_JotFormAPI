@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS bookmark_db;
+CREATE DATABASE bookmark_db;
